@@ -8,12 +8,8 @@
   ([]
    (quil/save-frame (pretty/cl-format nil
                                       "frames/~d-~2,'0d-~2,'0d-~2,'0d-~2,'0d-~2,'0d-####.jpeg"
-                                      (quil/year)
-                                      (quil/month)
-                                      (quil/day)
-                                      (quil/hour)
-                                      (quil/minute)
-                                      (quil/seconds))))
+                                      (quil/year) (quil/month) (quil/day)
+                                      (quil/hour) (quil/minute) (quil/seconds))))
   ([state _]
    (save-frame-to-disk)
    state))
@@ -23,7 +19,7 @@
   (let [r (* radius
              (quil/sqrt (quil/random 0 1)))
         t (quil/random 0
-                    (* 2 quil/PI))]
+                       (* 2 quil/PI))]
     [(* r
         (quil/cos t))
      (* r
