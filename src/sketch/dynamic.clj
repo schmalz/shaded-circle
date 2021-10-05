@@ -2,7 +2,7 @@
   (:require [clojure.pprint :as pretty]
             [quil.core :as quil]))
 
-(def radius 200)
+(def radius 300)
 
 (defn save-frame-to-disk
   ([]
@@ -16,8 +16,9 @@
 
 (defn- point-in-circle
   []
-  (let [r (* radius
+  (let [r #_(* radius
              (quil/sqrt (quil/random 0 1)))
+          (* radius (quil/random-gaussian))
         t (quil/random 0
                        (* 2 quil/PI))]
     [(* r
