@@ -56,12 +56,12 @@
   (quil/no-loop)
   (quil/background 0 0 0)
   (quil/no-fill)
-  (quil/with-translation [(/ (quil/width)
-                             2)
-                          (/ (quil/height)
-                             2)]
-    (draw-curves 1001))
-  (draw-points 1000000 #_750000)
+  (quil/with-translation [(* (quil/width)
+                             0.75)
+                          (* (quil/height)
+                             0.75)]
+    (draw-curves 666))
+  (draw-points 1500000)
   (save-frame-to-disk))
 
 (defn initialise

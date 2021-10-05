@@ -7,8 +7,8 @@
   :title "Shaded Circle"
   :setup dynamic/initialise
   :draw dynamic/draw
-  :features [:keep-on-top]
-  :size [900 900])
+  #_:features #_[:keep-on-top]
+  :size [1300 1300])
 
 (defn refresh
   []
