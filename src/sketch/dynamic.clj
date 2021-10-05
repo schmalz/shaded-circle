@@ -2,7 +2,7 @@
   (:require [clojure.pprint :as pretty]
             [quil.core :as quil]))
 
-(def radius 400)
+(def radius 200)
 
 (defn save-frame-to-disk
   ([]
@@ -27,10 +27,18 @@
 
 (defn- draw-curve
   []
-  (quil/stroke 180 9 63 (rand)) ; base1 (grey)
+  (quil/stroke 1
+               (quil/random 50 100)
+               (quil/random 100)
+               (quil/random 1))
   (apply quil/curve
          (flatten (take 4
                         (repeatedly point-in-circle)))))
+
+(defn- draw-curves
+  [n]
+  (dotimes [_ n]
+    (draw-curve)))
 
 (defn- draw-point
   []
@@ -39,22 +47,21 @@
 
 (defn- draw-points
   [n]
-  (quil/stroke 44 10 99)
+  (quil/stroke 0 0 0)
   (dotimes [_ n]
     (draw-point)))
 
 (defn draw
   []
   (quil/no-loop)
-  (quil/background 44 10 99)
+  (quil/background 0 0 0)
   (quil/no-fill)
   (quil/with-translation [(/ (quil/width)
                              2)
                           (/ (quil/height)
                              2)]
-    (dotimes [_ 1001]
-      (draw-curve)))
-  (draw-points 750000)
+    (draw-curves 1001))
+  (draw-points 1000000 #_750000)
   (save-frame-to-disk))
 
 (defn initialise
