@@ -16,9 +16,8 @@
 
 (defn- point-in-circle
   []
-  (let [r #_(* radius
-             (quil/sqrt (quil/random 0 1)))
-          (* radius (quil/random-gaussian))
+  (let [r (* radius
+             (quil/random-gaussian))
         t (quil/random 0
                        (* 2 quil/PI))]
     [(* r
